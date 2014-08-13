@@ -1,4 +1,8 @@
-class Answer < ActiveRecord::Base
+class Question < ActiveRecord::Base
+  has_many :answers
+  belongs_to :survey
   belongs_to :history
-  belongs_to :question
+
+  # def total
+  #   History.where(self.id
 end

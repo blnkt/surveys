@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813203910) do
+ActiveRecord::Schema.define(version: 20140813221604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,22 +22,18 @@ ActiveRecord::Schema.define(version: 20140813203910) do
   end
 
   create_table "histories", force: true do |t|
-    t.integer "survey_names_id"
-    t.integer "questions_id"
-    t.integer "answers_id"
+    t.integer "question_id"
+    t.integer "answer_id"
+    t.integer "survey_id"
   end
 
   create_table "questions", force: true do |t|
-    t.string "q_text"
-  end
-
-  create_table "survey_names", force: true do |t|
-    t.string "name"
+    t.string  "q_text"
+    t.integer "survey_id"
   end
 
   create_table "surveys", force: true do |t|
-    t.integer "survey_names_id"
-    t.integer "question_id"
+    t.string "name"
   end
 
 end
