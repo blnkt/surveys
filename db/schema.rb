@@ -11,20 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813174042) do
+ActiveRecord::Schema.define(version: 20140813203910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: true do |t|
     t.string  "a_text"
-    t.integer "answers_questions_id"
-    t.integer "history_id"
-  end
-
-  create_table "answers_questions", force: true do |t|
-    t.integer "questions_id"
-    t.integer "answers_id"
+    t.integer "question_id"
   end
 
   create_table "histories", force: true do |t|
@@ -34,19 +28,16 @@ ActiveRecord::Schema.define(version: 20140813174042) do
   end
 
   create_table "questions", force: true do |t|
-    t.string  "q_text"
-    t.integer "answers_questions_id"
-    t.integer "history_id"
+    t.string "q_text"
   end
 
   create_table "survey_names", force: true do |t|
-    t.string  "name"
-    t.integer "surveys_id"
+    t.string "name"
   end
 
   create_table "surveys", force: true do |t|
-    t.integer "answers_questions_id"
     t.integer "survey_names_id"
+    t.integer "question_id"
   end
 
 end

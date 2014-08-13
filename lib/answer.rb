@@ -1,4 +1,5 @@
 class Question < ActiveRecord::Base
-  belongs_to :answers_questions
+  has_many :answers
+  belongs_to :surveys
   belongs_to :histories
 end
