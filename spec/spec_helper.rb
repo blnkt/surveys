@@ -1,5 +1,10 @@
 require 'active_record'
 require 'rspec'
+require 'answer'
+require 'question'
+require 'survey'
+require 'history'
+require 'survey_name'
 
 database_configurations = YAML::load(File.open('./db/config.yml'))
 test_configuration = database_configurations['test']
